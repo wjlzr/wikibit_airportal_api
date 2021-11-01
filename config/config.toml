@@ -1,0 +1,82 @@
+[application]
+mode = "dev"  #dev开发环境 test测试环境 prod线上环境
+host = "0.0.0.0"
+name =  "WikiBit"
+port= 8001
+
+[mysql]                                                #mysql数据配置
+driver_name = "mysql"                                   #数据库
+#dsn = "root:WikiBank#888@(127.0.0.1:3306)/escompany"  #连接源
+#dsn = "root:123456@(127.0.0.1:3306)/wikibit"  #连接源
+dsn = "root:WikiBank#888@(18.163.2.29:3306)/wikibit"  #连接源
+#dsn = "root:123456@(192.168.1.63:3306)/wikibit"  #连接源
+max_open_conns = 100                                     #最大打开连接数
+max_idle_conns = 40                                    #最大活动连接数
+
+[rediscluster]                                         #redis集群
+#addrs = ["192.168.1.69:9001","192.168.1.69:9002","192.168.1.69:9003","192.168.1.69:9004","192.168.1.69:9005","192.168.1.69:9006"]
+addrs = "127.0.0.1:6379"
+password = ""                                    #密码
+dial_timeout = 10                                      #超时时间
+pool_size = 20                                         #连接池大小
+
+[log]
+path = "./logs/"
+
+[api]
+auth_token = "ANB93@djk@!093djk*2LS12"                #认证令牌
+allow_path_prefix_skipper = ["/api/v1/oauth/smsSend","/api/v1/oauth/login","/api/v1/oauth/register","/api/v1/oauth/validateCode","/api/v1/oauth/quickLogin","/api/v1/search/company/list","/api/v1/search/officers/list","/api/v1/search/officers/info","/api/v1/search/company/info","/api/v1/user/retrievePasswordByPhone","/api/v1/geo/getWithIpToLocation","/api/v1/search/region/info","/api/v1/search/hotdata/list","/api/v1/search/latelybrowse/list"] #过滤路由不验证
+
+#[url]
+#website = "http://192.168.1.145:8080/"
+
+[url]
+website = "http://192.168.1.145:8080/"
+
+[usercenter]
+#user = "https://oce.fx696.com:5200/"              #用户中心
+#sign_url = "https://oce.fx696.com:59105/"         #签名线上地址
+sign_url = "http://192.168.1.71:59103/"    #测试环境
+user = "http://192.168.1.71:5100/"         #用户模块地址
+
+
+[email]
+host = "smtp.mxhichina.com"
+port = 465
+username = "bank@wikifx.vip"
+password = "Bank2020"
+content_type = "text/plain"
+
+# 静态资源
+[staticresources]
+url = "http://192.168.1.83:88/"
+
+[nsq]
+host = "127.0.0.1"
+port = "4150"
+
+[encryption]
+aes_secret_key = "TexduFFgHL9JIEZf"
+
+[activity]
+start_date = 1609430400
+end_date = 1609516799
+
+[wikibit]
+gateway = "http://192.168.1.71:5100/"
+app_id = "KB5DIWKOQHFHqNraBhkZ7IGE"
+secret = "a54d175b0ecd4a0f852044b911b0ffd4"
+
+[h5]
+gateway = "http://192.168.1.64:8080/"
+
+[googlemap]
+key = "AIzaSyDCVJ5Cg8Irbln-mZmjXi0oEgsnafBwXNo"
+
+[ucloud]
+gateway = "https://api.ucloud.cn/"
+public_key = "Yo38IJu0KXQer6odTCcQ3Yv1TbyNQBehzIki8P-S"
+private_key = "4kXHo332FuH5yDlfQO3y3gIW4KEsp4RdtkjOxpu3llwsT2D6kfRzCmv4snSdT9iS"
+
+
+
